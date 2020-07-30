@@ -5,14 +5,10 @@ function computerPlay(){
     // create random number
     //
     randNumber = Math.floor(Math.random()*choices.length);
-    // show random number to ensure between range
-    //
-    // console.log(`random number is ${randNumber}`);
     //choose computer choice and return
     //
     randChoice = choices[randNumber];
     return randChoice;
-
 }
 
 function playerPlay(){
@@ -36,9 +32,7 @@ function playerPlay(){
 function playRound(computerSelection, playerSelection, score){
     if (playerSelection === null || playerSelection === "" ) {
         playerSelection = playerPlay()
-
     }
-
     if (computerSelection === playerSelection){
         return 'It\'s a tie!';
     }
@@ -73,8 +67,9 @@ function playGame(){
     //computer index 0, player index 1
     //
     let score = [0, 0];
-    for(let i=0; i<5; i++){
-        console.log(`Round ${i+1}!`)
+    let rounds = 5;
+    for(let i=0; i<rounds; i++){
+        console.log(`Round ${i+1} of ${rounds}!`)
         let computerChoice = computerPlay();
         let playerChoice = playerPlay();
         console.log(playRound(computerChoice, playerChoice, score));
@@ -83,20 +78,18 @@ function playGame(){
     }
 
     if (score[1] >= score[0]){
-        console.log('You win!');
+        console.log('You win the game!');
     }
     else if (score[1] <= score[0]){
-        console.log('You lost!');
+        console.log('You lost the game!');
     }
     else{
-        console.log('It\'s a tie!');
+        console.log('The game ended in a tie!');
     }
 
 }
 
 
 
-console.log('hello!');
-// let computerChoice = computerPlay();
-// let playerChoice = playerPlay();
+console.log('hello! let\s play Rock Paper Scissors!');
 console.log(playGame())
